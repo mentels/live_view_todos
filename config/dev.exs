@@ -2,9 +2,9 @@ import Config
 
 # Configure your database
 config :live_view_todos, LiveViewTodos.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
+  username: System.get_env("DB_USER", "postgres"),
+  password: System.get_env("DB_PASSWORD", "postgres"),
+  hostname: System.get_env("DB_HOSTNAME", "localhost"),
   database: "live_view_todos_dev",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
