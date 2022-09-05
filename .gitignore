@@ -32,3 +32,6 @@ live_view_todos-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# excude db data
+/postgres_data/
+
