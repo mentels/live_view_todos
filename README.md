@@ -1,3 +1,4 @@
+Based on: https://github.com/dnsbty/live_view_todos
 # LiveViewTodos
 
 To start your Phoenix server:

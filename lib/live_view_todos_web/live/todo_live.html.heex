@@ -1,0 +1,33 @@
+<form action="#" phx-submit="add">
+    <%= text_input :todo, :title, placeholder: "What do you want to get done?" %>
+    <%= submit "Add", phx_disable_with: "Adding..." %>
+</form>
+
+
+<h3>TODO list in a template</h3>
+<%= for todo <- @todos do %>
+<div>
+    <%= checkbox(:todo, :done, phx_click: "toggle_done", phx_value_id: todo.id, value: todo.done) %>
+    <%= todo.title %>
+    <%= submit "Delete", phx_click: "delete", phx_value_id: todo.id %>
+</div>
+<% end %>
+
+
+<h3>TODO list as a function component</h3>
+<div>
+    <.todo_list todos={@todos}/>
+</div>
+
+<h3>TDO list a a function component with slot</h3>
+<div>
+    <%# %{checkbox:..., title:...} is sent back from the function component via render_slot/2 %>
+    <table>
+    <.todo_list_slot let={%{checkbox: box, title: title, delete_button: button}} todos={@todos}>
+        <tr><td><%= box %><%= title %></td> <td><%= button %></td></tr>
+    </.todo_list_slot>
+    </table>
+</div>
+
+<h3>TDO list a a function component with named slot</h3>
+TODO
